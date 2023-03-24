@@ -1,0 +1,35 @@
+import turtle
+
+# Set up the screen
+screen = turtle.Screen()
+screen.bgcolor("black")
+
+# Create the wormhole shape
+wormhole = turtle.Turtle()
+wormhole.color("purple")
+wormhole.speed(0)
+wormhole.penup()
+wormhole.setpos(0, 0)
+wormhole.pendown()
+wormhole.begin_fill()
+for i in range(36):
+    wormhole.forward(200)
+    wormhole.right(170)
+wormhole.end_fill()
+
+# Create the moving effect
+def animate():
+    wormhole.color("black")
+    wormhole.fillcolor("black")
+    wormhole.stamp()
+    wormhole.color("purple")
+    wormhole.fillcolor("purple")
+    wormhole.right(5)
+    wormhole.forward(20)
+    screen.ontimer(animate, 10)
+
+# Start the animation
+animate()
+
+# Exit on click
+screen.exitonclick()
